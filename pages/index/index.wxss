@@ -1,21 +1,32 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.box {  
+  margin: 20rpx 0; 
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+.page {
+  height: 100Vh;
+  width: 100vw;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.page.show {
+  overflow: hidden;
 }
 
-.usermotto {
-  margin-top: 200px;
+.switch-sex::after {
+  content: "\e716";
 }
+
+.switch-sex::before {
+  content: "\e7a9";
+}
+
+.switch-music::after {
+  content: "\e66a";
+}
+
+.switch-music::before {
+  content: "\e6db";
+}
+

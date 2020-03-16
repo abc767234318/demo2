@@ -1,13 +1,93 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">潮流梦想家</view>
+</cu-custom>
+
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000"                   duration="500"bindchange="cardSwiper"indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+		<view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+			<view class="cuIcon-{{item.icon}} text-{{item.color}}">
+				<view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+					<block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+				</view>
+			</view>
+			<text>{{item.name}}</text>
+		</view>
+	</view>
+<view class="card">
+  <i-card title="商品名称 这里" extra="商品的额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+  </i-card>
+</view>
+
+<view wx:for="{{citygoods}}" wx:for-index="index" wx:for-item="good">
+        <navigator url="{{url2+'?goodsid='+good.goodsid}}">
+            <view wx:if="{{good.online== 1&&good.goodsremain!=0}}">
+                <van-card num="剩余{{good.goodsremain}}{{numberArray[good.goodsunits]}}" price="{{good.goodsprice}}/{{numberArray[good.goodsunits]}}" desc="{{good.goodscity}}" title="{{good.goodsname}}" thumb-mode="aspectFill" thumb="https://www.mifengtushu.com/duoduo/Uploads/{{good.image}}">
+                </van-card>
+            </view>
+        </navigator>
+        <view class="h1"></view>
+    </view>
+
+
+
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="basics">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/basics{{PageCur=='basics'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">元素</view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="action" bindtap="NavChange" data-cur="component">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/component{{PageCur=='component'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='component'?'text-green':'text-gray'}}">组件</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="plugin">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/plugin{{PageCur=='plugin'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='plugin'?'text-green':'text-gray'}}">扩展</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="about">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">关于</view>
   </view>
 </view>
+
+
+
+
+
+
+
+
+
+<!--
+  <view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+  <view class="flex justify-center">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
+    <block wx:else>
+      <view class='text-center'>
+        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="padding">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="text-center margin-top">
+  <text class="text-grey text-xl">{{motto}}</text>
+</view>
+-->
