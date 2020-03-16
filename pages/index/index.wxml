@@ -21,22 +21,20 @@
 			<text>{{item.name}}</text>
 		</view>
 	</view>
-<view class="card">
-  <i-card title="商品名称 这里" extra="商品的额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="content">内容不错</view>
-    <view slot="footer">尾部内容</view>
-  </i-card>
+
+   <i-card class="icard" title="商品名称 这里" extra="多少多少钱" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="content">店铺名称</view>
+    </i-card>
+
+
+<view wx:for="{{goods}}" wx:for-index="index" wx:for-item="good" class="card">
+  <navigator url="/page/商品详情页" hover-class="navigator-hover">
+   
+  </navigator>    
 </view>
 
-<view wx:for="{{citygoods}}" wx:for-index="index" wx:for-item="good">
-        <navigator url="{{url2+'?goodsid='+good.goodsid}}">
-            <view wx:if="{{good.online== 1&&good.goodsremain!=0}}">
-                <van-card num="剩余{{good.goodsremain}}{{numberArray[good.goodsunits]}}" price="{{good.goodsprice}}/{{numberArray[good.goodsunits]}}" desc="{{good.goodscity}}" title="{{good.goodsname}}" thumb-mode="aspectFill" thumb="https://www.mifengtushu.com/duoduo/Uploads/{{good.image}}">
-                </van-card>
-            </view>
-        </navigator>
-        <view class="h1"></view>
-    </view>
+
+
 
 
 
