@@ -3,6 +3,7 @@
 const app = getApp()
 
 Page({
+  
   data: {
     swiperList: [{      //轮播图图片路径
       id: 0,
