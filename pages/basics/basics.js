@@ -1,4 +1,5 @@
 // pages/basics/basics.js
+const app = getApp()
 Page({
 
   /**
@@ -66,7 +67,6 @@ Page({
       name: '宠物托管'
     }],
     gridCol:3,
-    motto: 'Hi 开发者！',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -76,7 +76,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    console.log("hahahahaha")
+    wx.request({
+      url: (app.globalData.url + 'commodity/getAll'),
+      method:'post',
+      data: {
+        start:'0',
+        end:'3'
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        'csrf-csrf': 'csrf-csrf'
+      },
+      success: function (res) {
+        that.setData(
+          {
+            goods:res.data.data
+          }
+        )
+        console.log(res)
+      }
+    })
   },
 
   /**

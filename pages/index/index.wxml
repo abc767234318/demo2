@@ -1,33 +1,16 @@
-<basics wx:if="{{PageCur=='basics'}}"></basics>
-<component wx:if="{{PageCur=='component'}}"></component>
-<plugin wx:if="{{PageCur=='plugin'}}"></plugin>
-<about wx:if="{{PageCur=='about'}}"></about>
-
-<view class="cu-bar tabbar bg-white shadow foot">
-
-  <view class="action" bindtap="NavChange" data-cur="basics">
-    <view class='cuIcon-home'>
+<view wx:if="{{canIUse}}">
+    <view class='header'>
+        <image src='https://www.mifengtushu.com/duoduo/Uploads/image/logo.png'></image>
     </view>
-    <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">首页</view>
-  </view>
 
-  <view class="action" bindtap="NavChange" data-cur="component">
-    <view class='cuIcon-magic'>
+    <view class='content'>
+        <view>潮流梦想家申请获取以下权限</view>
+        <text>获得你的公开信息(昵称，头像等)</text>
     </view>
-    <view class="{{PageCur=='component'?'text-green':'text-gray'}}">定制</view>
-  </view>
 
-  <view class="action" bindtap="NavChange" data-cur="plugin">
-    <view class='cuIcon-cart'>
-    </view>
-    <view class="{{PageCur=='plugin'?'text-green':'text-gray'}}">购物车</view>
-  </view>
-
-  <view class="action" bindtap="NavChange" data-cur="about">
-    <view class='cuIcon-people'>
-    </view>
-    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">我的</view>
-  </view>
-
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
 </view>
 
+<view wx:else>请升级微信版本</view>
