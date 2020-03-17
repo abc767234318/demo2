@@ -6,7 +6,8 @@
     "pages/my/feedback/feedback",
     "pages/my/aboutUs/aboutUs",
     "pages/cart/cart",
-    "pages/faxian/faxian"
+    "pages/faxian/faxian",
+    "pages/upload/upload"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,30 +19,30 @@
   "tabBar": {
     "selectedColor": "#495056",
     "list": [
-        {
-            "pagePath": "pages/basics/basics",
-            "text": "首页",
-            "iconPath": "images/logo.png",
-            "selectedIconPath": "images/logo.png"
-        },
-        {
-            "pagePath": "pages/faxian/faxian",
-            "text": "发现",
-            "iconPath": "images/logo.png",
-            "selectedIconPath": "images/logo.png"
-        },
-        {
-            "pagePath": "pages/cart/cart",
-            "text": "购物车",
-            "iconPath": "images/logo.png",
-            "selectedIconPath": "images/logo.png"
-        },
-        {
-          "pagePath": "pages/my/home/home",
-          "text": "我的",
-          "iconPath": "images/logo.png",
-          "selectedIconPath": "images/logo.png"
-        }
+      {
+        "pagePath": "pages/basics/basics",
+        "text": "首页",
+        "iconPath": "images/logo.png",
+        "selectedIconPath": "images/logo.png"
+      },
+      {
+        "pagePath": "pages/faxian/faxian",
+        "text": "发现",
+        "iconPath": "images/logo.png",
+        "selectedIconPath": "images/logo.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/logo.png",
+        "selectedIconPath": "images/logo.png"
+      },
+      {
+        "pagePath": "pages/my/home/home",
+        "text": "我的",
+        "iconPath": "images/logo.png",
+        "selectedIconPath": "images/logo.png"
+      }
     ]
   },
   "usingComponents": {
