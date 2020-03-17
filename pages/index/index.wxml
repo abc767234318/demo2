@@ -14,11 +14,7 @@
   <view class="action" bindtap="NavChange" data-cur="component">
     <view class='cuIcon-magic'>
     </view>
-<<<<<<< HEAD
     <view class="{{PageCur=='component'?'text-green':'text-gray'}}">定制</view>
-=======
-    <view class="{{PageCur=='component'?'text-green':'text-gray'}}">发现</view>
->>>>>>> 582617ce890b0b23fdfcd9b47cf861a5c3d6d8b5
   </view>
 
   <view class="action" bindtap="NavChange" data-cur="plugin">
