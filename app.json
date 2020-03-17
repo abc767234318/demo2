@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/my/home/home",
     "pages/basics/basics",
-    "pages/my/feedback/feedback"
+    "pages/my/feedback/feedback",
+    "pages/my/aboutUs/aboutUs",
+    "pages/cart/cart"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -2,6 +2,7 @@
   "usingComponents": {
     "i-card": "../../iview/card/index",
     "basics":"/pages/basics/basics", 
-    "about": "/pages/my/home/home"
+    "about": "/pages/my/home/home",
+    "plugin":"/pages/cart/cart"
 }
 }
