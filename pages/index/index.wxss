@@ -29,6 +29,3 @@
 .switch-music::before {
   content: "\e6db";
 }
-.icard{
-  margin-top: 5px;
-}

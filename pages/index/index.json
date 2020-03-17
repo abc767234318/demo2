@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "i-card": "../../iview/card/index"
+    "i-card": "../../iview/card/index",
+    "basics":"/pages/basics/basics", 
+    "about": "/pages/my/home/home"
 }
 }
