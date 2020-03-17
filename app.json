@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/my/home/home",
-    "pages/basics/basics"
+    "pages/basics/basics",
+    "pages/my/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,13 @@
+<!--pages/my/feedback/feedback.wxml-->
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">产品反馈</view>
+</cu-custom>
+
+<view class="font_size" style="width: 100%;margin-left: 0">
+    <form method="post">
+        <textarea class="feedbackText" placeholder="请提出您的宝贵意见!" bindinput="setContent"></textarea>
+        <button class="submit" bindtap="submitOpinion">反馈</button>
+    </form>
+</view>
