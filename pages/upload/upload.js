@@ -5,13 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧', '其他'],
-    externalView: 0,
-    detailPage: 0,
-    imgList1: [],
-    imgList2: [],
-    index1: null,
-    index2: null
+    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧', '其他'],  //商品种类
+    externalView: 0,   //外观图个数
+    detailPage: 0,    //详情图个数
+    imgList1: [], //商品外观描述图
+    imgList2: [], //商品详情图
+    index:null, //商品种类的下标，对应的上面的picker
+    value1:'', //商品的名称
+    value2:'' //商品的单价
+  },
+  changeInput(e){
+    let changed = {};
+    let prop = e.currentTarget.dataset.prop
+    changed[prop] = e.detail.value;
+    this.setData(changed)
+  },
+  PickerChange(e) {
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    })
   },
   ChooseImage1() {
     wx.chooseImage({
@@ -19,16 +32,16 @@ Page({
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
+        this.data.externalView++;
         if (this.data.imgList1.length != 0) {
           this.setData({
             imgList1: this.data.imgList1.concat(res.tempFilePaths),
           })
-          this.externalView++;
+
         } else {
           this.setData({
             imgList1: res.tempFilePaths,
           })
-          this.externalView++;
         }
       }
     });
@@ -39,40 +52,48 @@ Page({
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
+        this.data.detailPage++;
         if (this.data.imgList2.length != 0) {
           this.setData({
             imgList2: this.data.imgList2.concat(res.tempFilePaths),
           })
-          this.detailPage++;
         } else {
           this.setData({
             imgList2: res.tempFilePaths,
           })
-          this.detailPage++;
         }
       }
     });
   },
-  UpLoad() {
-    for (i = 0; i < externalView; i++) {
+  UpLoad : function(e) {
+    console.log("hhahahahh");
+    for (var i = 0; i < this.externalView; i++) {
       wx.uploadFile({
         url: 'https://localhost:8080/upload', //仅为示例，非真实的接口地址
         filePath: imgList1,
         name: userId + createCode(),
         success(res) {
+          console.log("hhahahahaha");
           const data = res.data
           //do something
+        },
+        fail: function (res) {
+          console.log(res);
         }
       })
     }
-    for(i = 0;i < detailPage;i++){
+    for(var i = 0;i < this.detailPage;i++){
       wx.uploadFile({
         url: 'https://localhost:8080/upload', //仅为示例，非真实的接口地址
         filePath: imgList2,
         name: userId + createCode(),
         success(res) {
+          console.log("hhahahahaha");
           const data = res.data
           //do something
+        },
+        fail: function (res) {
+          console.log(res);
         }
       })
     }
@@ -97,11 +118,13 @@ Page({
       cancelText: '取消',
       confirmText: '确定',
       success: res => {
+        this.data.externalView--;
         if (res.confirm) {
           this.data.imgList1.splice(e.currentTarget.dataset.index, 1);
           this.setData({
             imgList1: this.data.imgList1
           })
+
         }
       }
     })
@@ -113,6 +136,7 @@ Page({
       cancelText: '取消',
       confirmText: '确定',
       success: res => {
+        this.data.detailPage--;
         if (res.confirm) {
           this.data.imgList2.splice(e.currentTarget.dataset.index, 1);
           this.setData({
