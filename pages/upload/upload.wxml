@@ -1,6 +1,9 @@
 <!--pages/upload/upload.wxml-->
 <text>pages/upload/upload.wxml</text>
-
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">上传商品</view>
+</cu-custom>
 <view class="cu-form-group margin-top">
 	<view class="title">商品名称</view>
 	<input placeholder="请填写您要上传的商品名称"></input>
@@ -10,13 +13,64 @@
 	<input placeholder="请设置您的商品单价"></input>
 </view>
 <view class="cu-form-group margin-top">
-		<view class="title">商品种类</view>
-		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-			<view class="picker">
-				{{index?picker[index]:'禁止换行，超出容器部分会以 ... 方式截断'}}
-			</view>
-		</picker>
+	<view class="title">商品种类</view>
+	<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+		<view class="picker">
+			{{index?picker[index]:'禁止换行，超出容器部分会以 ... 方式截断'}}
+		</view>
+	</picker>
+</view>
+<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			商品外观图上传
+		</view>
+		<view class="action">
+			{{imgList1.length}}/6
+		</view>
 	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList1}}" wx:key="{{index}}" bindtap="ViewImage1" data-url="{{imgList1[index]}}">
+				<image src='{{imgList1[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg1" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage1" wx:if="{{imgList1.length<6}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			商品详情页上传
+		</view>
+		<view class="action">
+			{{imgList2.length}}/6
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList2}}" wx:key="{{index}}" bindtap="ViewImage2" data-url="{{imgList12[index]}}">
+				<image src='{{imgList2[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage2" wx:if="{{imgList2.length<6}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+<view class="box">
+  <view class="cu-bar btn-group">
+    <button class="cu-btn bg-green shadow-blur round lg">上传</button>
+  </view>
+</view>
+
+
+<!--
 <view class="cu-bar bg-white margin-top">
 	<view class="action">
 		商品外观图（最多六张）
@@ -26,18 +80,18 @@
 	</view>
 </view>
 <view class="cu-form-group">
-		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<6}}">
-				<text class="cuIcon-cameraadd"></text>
+	<view class="grid col-4 grid-square flex-sub">
+		<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+			<image src='{{imgList[index]}}' mode='aspectFill'></image>
+			<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+				<text class="cuIcon-close"></text>
 			</view>
 		</view>
+		<view class="solids" bindtap="ChooseImage1" wx:if="{{imgList.length<6}}">
+			<text class="cuIcon-cameraadd"></text>
+		</view>
 	</view>
+</view>
 <view class="cu-bar bg-white margin-top">
 	<view class="action">
 		商品详情页（最多六张）
@@ -47,15 +101,16 @@
 	</view>
 </view>
 <view class="cu-form-group">
-		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<6}}">
-				<text class="cuIcon-cameraadd"></text>
+	<view class="grid col-4 grid-square flex-sub">
+		<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+			<image src='{{imgList[index]}}' mode='aspectFill'></image>
+			<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+				<text class="cuIcon-close"></text>
 			</view>
 		</view>
+		<view class="solids" bindtap="ChooseImage2" wx:if="{{imgList.length<6}}">
+			<text class="cuIcon-cameraadd"></text>
+		</view>
 	</view>
+</view>
+-->

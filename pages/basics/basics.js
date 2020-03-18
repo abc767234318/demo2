@@ -147,5 +147,8 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  cardSwiper: function(){
+
   }
 })

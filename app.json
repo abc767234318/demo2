@@ -26,7 +26,7 @@
         "selectedIconPath": "images/logo.png"
       },
       {
-        "pagePath": "pages/faxian/faxian",
+        "pagePath": "pages/upload/upload",
         "text": "发现",
         "iconPath": "images/logo.png",
         "selectedIconPath": "images/logo.png"

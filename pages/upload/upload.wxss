@@ -1,1 +1,85 @@
 /* pages/upload/upload.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+.cu-bar.btn-group {
+  justify-content: space-around;
+  top: 60px;
+}
+
+.cu-btn.lg {
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  height: 80rpx;
+
+}
+
+.bg-green {
+  background-color: var(--green);
+  color: var(--white);
+
+}
+
+.cu-btn {
+  position: relative;
+  border: 0rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  height: 64rpx;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  overflow: visible;
+  margin-left: initial;
+  transform: translate(0rpx, 0rpx);
+  margin-right: initial;
+
+}
+
+.shadow-blur {
+position: relative;
+
+}
+
+.round {
+border-radius: 5000rpx;
+
+}
+
+view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+  box-sizing: border-box;
+
+}
+
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.55555556;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  color: #000;
+  background-color: #f8f8f8;
+
+}
