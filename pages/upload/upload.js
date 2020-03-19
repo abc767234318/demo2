@@ -1,6 +1,6 @@
 // pages/upload/upload.js
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -66,15 +66,45 @@ Page({
     });
   },
   UpLoad : function(e) {
-    console.log("hhahahahh");
-    for (var i = 0; i < this.externalView; i++) {
+    wx.request({
+      url: (app.globalData.url+'commodity/add'),
+      method:'post',
+      data: {
+        userId: 'admin',
+        comName:this.data.value1,
+        price: this.data.value2,
+        typeId: this.data.index,
+        ifExa:'0'
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        'csrf-csrf': 'csrf-csrf'
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+    for (var i = 0; i < this.data.externalView; i++) {
+    wx.uploadFile({
+      url: 'https://localhost:8080/upload', //仅为示例，非真实的接口地址
+      filePath: this.data.imgList1[i],
+      name: 'this.data.userId ,',
+      success(res) {
+        console.log("图片上传成功");
+        //do something
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    })
+  }
+    for(var i = 0;i < this.data.detailPage;i++){
       wx.uploadFile({
         url: 'https://localhost:8080/upload', //仅为示例，非真实的接口地址
-        filePath: imgList1,
-        name: userId + createCode(),
+        filePath: imgList2[i],
+        name: 'admin',
         success(res) {
-          console.log("hhahahahaha");
-          const data = res.data
+          console.log("t图片上传成功");
           //do something
         },
         fail: function (res) {
@@ -82,22 +112,7 @@ Page({
         }
       })
     }
-    for(var i = 0;i < this.detailPage;i++){
-      wx.uploadFile({
-        url: 'https://localhost:8080/upload', //仅为示例，非真实的接口地址
-        filePath: imgList2,
-        name: userId + createCode(),
-        success(res) {
-          console.log("hhahahahaha");
-          const data = res.data
-          //do something
-        },
-        fail: function (res) {
-          console.log(res);
-        }
-      })
-    }
-    //这里缺少上传数据的东西
+
   },
   ViewImage1(e) {
     wx.previewImage({
