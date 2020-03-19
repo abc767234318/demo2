@@ -16,7 +16,7 @@
       <view class='info'>
         <view class='title'>{{item.goods_title}}</view>
         <view class='price'>￥{{item.goods_price}}</view>
-        <view class='num'>购买数量量{{item.goods_xiaoliang}}</view>
+        <view class='num'>购买数量{{item.goods_xiaoliang}}</view>
       </view>
        </navigator>
       <view class='clear'></view>
