@@ -1,3 +1,22 @@
 <!--pages/my/aboutUs/aboutUs.wxml-->
 <text>pages/my/aboutUs/aboutUs.wxml</text>
 
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">关于我们</view>
+</cu-custom>
+
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于潮流梦想家</view>
+  <view class='text-content'>
+    <view>Hi！梦想家！</view>
+    <view class='margin-top-sm'>潮流梦想家会让每一个前来的买家能买到自己满意的产品</view>
+    <view class='margin-top-sm'>不再限于已经指定好的商品属性</view>
+    <view class='margin-top-sm'>如果有不足之处，欢迎向我们反馈</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>
+<view style="margin-top: 20px">
+    <i-button type="ghost" bind:click="handleOpen1">联系我们</i-button>
+</view>
+<i-action-sheet visible="{{ visible1 }}" actions="{{ actions1 }}" show-cancel bind:cancel="handleCancel1" bind:click="handleClickItem1" />
