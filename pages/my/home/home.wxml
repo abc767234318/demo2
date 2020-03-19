@@ -40,7 +40,7 @@
     <view class="flex flex-sub flex-direction solid-right">
       <view class="text-xxl text-orange">{{visitTotal}}</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-form"></text> 我的订单</view>
+        <text class="cuIcon-form"></text> 全部</view>
     </view>
   </view>
 

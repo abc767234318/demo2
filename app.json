@@ -7,7 +7,9 @@
     "pages/my/aboutUs/aboutUs",
     "pages/cart/cart",
     "pages/faxian/faxian",
-    "pages/upload/upload"
+    "pages/upload/upload",
+    "pages/details/details",
+    "pages/form/form"
   ],
   "window": {
     "backgroundTextStyle": "light",

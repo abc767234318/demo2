@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-goods-action": "../../dist2/goods-action/index",
+        "van-goods-action-icon": "../../dist2/goods-action-icon/index",
+        "van-goods-action-button": "../../dist2/goods-action-button/index",
+        "van-submit-bar": "../../dist2/submit-bar/index",
+        "i-toast": "../../iview/toast/index"
+  }
+}

@@ -1,0 +1,37 @@
+<!--pages/form/form.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">请填写信息</view>
+</cu-custom>
+
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">数量选择</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'轻触以选择数量'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">备注</view>
+		<input placeholder="请输入备注"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">收货地址</view>
+		<input placeholder="请选择收货地址"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input placeholder="输入框带标签"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+</form>
+<i-button bind:click="ok">提交</i-button>

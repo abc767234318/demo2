@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    url2:'../details/details', //商品详情页
     swiperList: [{      //轮播图图片路径
       id: 0,
       type: 'image',
@@ -75,6 +76,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  show: function(e) {
+    console.log(e)
+    wx.navigateTo({ 
+      url: '/pages/details/details?goodname='+e.currentTarget.dataset.name+'&goodprice='+e.currentTarget.dataset.price, //跳转到详情页
+    });
+  },
+
   onLoad: function (options) {
     var that = this;
     console.log("hahahahaha")
@@ -92,7 +100,7 @@ Page({
       success: function (res) {
         that.setData(
           {
-            goods:res.data.data
+            goods:res.data.data,
           }
         )
         console.log(res)

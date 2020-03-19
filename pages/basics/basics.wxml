@@ -29,13 +29,9 @@
 </view>
 
 
-
-
 <view wx:for="{{goods}}" wx:for-index="index" wx:for-item="good" class="card">
-	<navigator url="../my/home/home" hover-class="navigator-hover">
 		<!-- 商品卡片 -->
-		<i-card class="icard" title="{{good.name}}" extra="￥{{good.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+		<i-card class="icard" data-name="{{good.name}}" data-price="{{good.price}}" bindtap="show" title="{{good.name}}" extra="￥{{good.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
 			<view slot="content">店铺名称</view>
 		</i-card>
-	</navigator>
 </view>
