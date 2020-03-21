@@ -30,9 +30,13 @@
 
 <view wx:for="{{goods}}" wx:for-index="index" wx:for-item="good" class="card">
 		<!-- 商品卡片 -->
-		<i-card class="icard" data-name="{{good.name}}" data-price="{{good.price}}" bindtap="show" extra="￥{{good.price}}" 
-		data-id="{{good.comId}}"thumb="{{good.photo}}">
-		<view class="name" slot="content">{{good.name}}</view>
-		<view class="store" slot="content">{{good.userId}}</view>
+		<i-card class="icard" 
+		data-id="{{good.comId}}" 	
+		bindtap="show" 
+		extra="￥{{good.price}}" 
+		thumb="{{good.photo}}"
+		>
+		<view class="name" slot="content">{{good.comName}}</view>
+		<view class="store" slot="content">{{good.userName}}</view>
 		</i-card>
 </view>

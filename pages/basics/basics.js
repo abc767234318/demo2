@@ -79,7 +79,7 @@ Page({
   show: function(e) {
     console.log(e)
     wx.navigateTo({ 
-      url: '/pages/details/details?goodname='+e.currentTarget.dataset.name+'&goodprice='+e.currentTarget.dataset.price, //跳转到详情页
+      url: '/pages/details/details?id='+e.currentTarget.dataset.id, //跳转到详情页
     });
   },
 

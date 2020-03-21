@@ -1,19 +1,16 @@
 // pages/details/details.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    id:"",
     current: 'tab1',
     isLike: true,
     // banner
     
-    imgUrls: [
-      "https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg",
-      "https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg",
-      "https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg",
-    ],
     indicatorDots: true, //是否显示面板指示点
     autoplay: true, //是否自动切换
     interval: 3000, //自动切换时间间隔,3s
@@ -30,11 +27,6 @@ Page({
   //预览图片
   previewImage: function (e) {
     var current = e.target.dataset.src;
-
-    wx.previewImage({
-      current: current, // 当前显示图片的http链接  
-      urls: this.data.imgUrls // 需要预览的图片http链接列表  
-    })
   },
   // 收藏
   addLike() {
@@ -54,11 +46,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      goodname:options.goodname,
-      goodprice: options.goodprice
+    var that = this;
+    //发起商品详情页请求
+    wx.request({
+      url: (app.globalData.url + 'commodity/getDetail'),
+      method:'post',
+      data: {
+        comId:options.id,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        'csrf-csrf': 'csrf-csrf'
+      },
+      success: function (res) {
+        //处理图片路径
+        var path1 = res.data.data[0]['photo'].split(";")
+        for(var i=0;i< path1.length;++i){
+          path1[i]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+path1[i]
+        }
+        var path2 = res.data.data[0]['detail'].split(";")
+        for(var i=0;i< path2.length;++i){
+          path2[i]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+path2[i]
+        }
+        that.setData({
+          comName:res.data.data[0]['comName'],
+          price:res.data.data[0]['price'],
+          userName:res.data.data[0]['userName'],
+          imgUrls:path1,
+          detail:path2
+        })
+        console.log(res.data.data[0]['photo'].split(";"))
+      }
     })
-    console.log(options)
+    
+    console.log(id)
   },
 
   /**

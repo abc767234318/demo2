@@ -1,15 +1,16 @@
 <!--pages/details/details.wxml-->
 <!--顶部-->
-<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+<cu-custom bgColor="bg-white" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">商品详情</view>
 </cu-custom>
 
 <!--轮播图-->
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+
   <block wx:for="{{imgUrls}}">
     <swiper-item>
-      <image src="{{item}}" data-src="{{item}}" bindtap="previewImage"></image>
+      <image class="tupian" mode="widthFix" src="{{item}}" bindtap="previewImage"></image>
     </swiper-item>
   </block>
 </swiper>
@@ -17,8 +18,8 @@
 <!--商品名称，价格-->
 <scroll-view scroll-y="true">
   <view class="detail">
-    <text class="title">{{goodname}}</text>
-    <text class="price">¥{{goodprice}}</text>
+    <text class="title">{{comName}}</text>
+    <text class="price">¥{{price}}</text>
   </view>
 </scroll-view>
   <!-- 导航栏 -->
@@ -26,35 +27,18 @@
     <i-tab key="tab1" title="详情"></i-tab>
     <i-tab key="tab2" title="评价"></i-tab>
 </i-tabs>
+
 <!-- 详情页 -->
 <view wx:if="{{current=='tab1'}}">
-<image src="../../images/1.png" mode="aspectFill">  
-</image>
+  <view wx:for="{{detail}}" >
+    <image class="tupian" mode="widthFix" data-src="{{item}}" src="{{item}}" bindtap="previewImage"></image>
+  </view>
+  <i-load-more class="tip" tip="已经到底啦" loading="{{ false }}" />
+  
 </view>
+
 <!-- 评价页 -->
 <view wx:if="{{current=='tab2'}}">
 <image src="../../images/buy.png" mode="aspectFill">  
 </image>
 </view>
-<!-- 底部悬浮栏 -->
-<van-goods-action>
-  <van-goods-action-icon
-    icon="chat-o"
-    text="联系卖家"
-    bind:click="onClickIcon2"
-  />
-  <van-goods-action-icon
-    icon="cart-o"
-    text="购物车"
-    bind:click="onClickIcon1"
-  />
-  <van-goods-action-button
-    text="加入购物车"
-    type="warning"
-    bind:click="cart"
-  />
-  <van-goods-action-button
-    text="立即购买"
-    bindtap="buy"
-  />
-</van-goods-action>

@@ -117,3 +117,10 @@ text {
   text-align:right;
   padding-right:30rpx;
 }
+.detail .tupian{
+  display: flex;
+}
+.detail .tip{
+  font-size: 40rpx;
+  color: red;
+}
