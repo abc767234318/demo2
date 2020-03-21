@@ -5,17 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    current: 'tab1',
     isLike: true,
-    goodname:'',
-    goodprice:'',
     // banner
     
     imgUrls: [
       "https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg",
       "https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg",
       "https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg",
-      "https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg",
-      "https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg"
     ],
     indicatorDots: true, //是否显示面板指示点
     autoplay: true, //是否自动切换
@@ -23,6 +20,11 @@ Page({
     duration: 1000, //  滑动动画时长1s
 
     // 商品详情介绍
+  },
+  handleChange ({ detail }) {
+    this.setData({
+        current: detail.key
+    });
   },
 
   //预览图片
@@ -45,7 +47,7 @@ Page({
   // 立即购买
   buy: function(e) {
     wx.navigateTo({ 
-      url: '/pages/form/form' //跳转到详情页
+      url: '/pages/form/form' //跳转到购买页
     });
   },
   /**

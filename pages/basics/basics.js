@@ -98,6 +98,10 @@ Page({
         'csrf-csrf': 'csrf-csrf'
       },
       success: function (res) {
+        for (var i = 0; i < 3; ++i) { //处理photo字段下的数据，只保留第一张图片，用于显示商品
+          res.data.data[i]["photo"]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+res.data.data[i]["photo"].split(";")[0]
+          console.log(res.data.data[i]["photo"])
+        }
         that.setData(
           {
             goods:res.data.data,

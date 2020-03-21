@@ -7,12 +7,12 @@ Page({
   data: {
     picker: ['喵喵喵', '汪汪汪', '哼唧哼唧', '其他'],  //商品种类
     externalView: 0,   //外观图个数
-    detailPage: 0,    //详情图个数
-    imgList1: [], //商品外观描述图
-    imgList2: [], //商品详情图
-    index:null, //商品种类的下标，对应的上面的picker
-    value1:'', //商品的名称
-    value2:'' //商品的单价
+    detailPage: 0,     //详情图个数
+    imgList1: [],      //商品外观描述图
+    imgList2: [],      //商品详情图
+    index:null,        //商品种类的下标，对应的上面的picker
+    value1:'',         //商品的名称
+    value2:''          //商品的单价
   },
   changeInput(e){
     let changed = {};

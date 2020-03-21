@@ -20,6 +20,7 @@
 		</view>
 	</picker>
 </view>
+
 <view class="cu-bar bg-white margin-top">
 	<view class="action">
 		商品外观图上传
@@ -28,6 +29,7 @@
 		{{imgList1.length}}/6
 	</view>
 </view>
+
 <view class="cu-form-group">
 	<view class="grid col-4 grid-square flex-sub">
 		<view class="bg-img" wx:for="{{imgList1}}" wx:key="{{index}}" bindtap="ViewImage1" data-url="{{imgList1[index]}}">
@@ -41,6 +43,7 @@
 		</view>
 	</view>
 </view>
+
 <view class="cu-bar bg-white margin-top">
 	<view class="action">
 		商品详情页上传

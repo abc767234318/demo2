@@ -1,9 +1,11 @@
 <!--pages/details/details.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<!--顶部-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">商品详情</view>
-  </cu-custom>
+</cu-custom>
 
+<!--轮播图-->
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}">
     <swiper-item>
@@ -12,26 +14,28 @@
   </block>
 </swiper>
 
-
+<!--商品名称，价格-->
 <scroll-view scroll-y="true">
   <view class="detail">
-    <text class="title">产品名称：{{goodname}}</text>
-    <text class="price">单价：¥{{goodprice}}</text>
+    <text class="title">{{goodname}}</text>
+    <text class="price">¥{{goodprice}}</text>
   </view>
-  <view class="separate"></view>
-  <!-- sku选择 -->
-  <text bindtap="toggleDialog">请选择购买数量</text>
-  <text>商品评价</text>
-  <text class="text-remark">东西还可以，好评~</text>
-  <view class="separate"></view>
-  <text>商品详情</text>
-
-
+</scroll-view>
+  <!-- 导航栏 -->
+<i-tabs current="{{ current }}" color="#f759ab" bindchange="handleChange">
+    <i-tab key="tab1" title="详情"></i-tab>
+    <i-tab key="tab2" title="评价"></i-tab>
+</i-tabs>
+<!-- 详情页 -->
+<view wx:if="{{current=='tab1'}}">
 <image src="../../images/1.png" mode="aspectFill">  
 </image>
-
-  <view class="temp"></view>
-</scroll-view>
+</view>
+<!-- 评价页 -->
+<view wx:if="{{current=='tab2'}}">
+<image src="../../images/buy.png" mode="aspectFill">  
+</image>
+</view>
 <!-- 底部悬浮栏 -->
 <van-goods-action>
   <van-goods-action-icon

@@ -1,9 +1,8 @@
 <!--pages/basics/basics.wxml-->
-<text>pages/basics/basics.wxml</text>
 
 <!-- 顶部信息 -->
-<cu-custom bgColor="bg-gradual-blue">
-	<view slot="content">潮流梦想家</view>
+<cu-custom bgColor="bg-yellow">
+	<view class="title" slot="content">潮流梦想家</view>
 </cu-custom>
 
 <!-- 轮番图 -->
@@ -31,7 +30,9 @@
 
 <view wx:for="{{goods}}" wx:for-index="index" wx:for-item="good" class="card">
 		<!-- 商品卡片 -->
-		<i-card class="icard" data-name="{{good.name}}" data-price="{{good.price}}" bindtap="show" title="{{good.name}}" extra="￥{{good.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-			<view slot="content">店铺名称</view>
+		<i-card class="icard" data-name="{{good.name}}" data-price="{{good.price}}" bindtap="show" extra="￥{{good.price}}" 
+		data-id="{{good.comId}}"thumb="{{good.photo}}">
+		<view class="name" slot="content">{{good.name}}</view>
+		<view class="store" slot="content">{{good.userId}}</view>
 		</i-card>
 </view>
