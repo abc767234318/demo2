@@ -37,11 +37,7 @@ Page({
   // 加入购物车
 
   // 立即购买
-  immeBuy: function(e) {
-    wx.navigateTo({ 
-      url: '/pages/form/form' //跳转到购买页
-    });
-  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

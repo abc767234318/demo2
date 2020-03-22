@@ -15,32 +15,32 @@ Page({
     iconList: [{
 
       icon: 'shop',
-      color: 'red',
+      color: 'blue',
       badge: 120,
       name: '正品'
     }, {
       icon: 'skin',
-      color: 'red',
+      color: 'blue',
       badge: 1,
       name: '我要定制'
     }, {
       icon: 'goods',
-      color: 'red',
+      color: 'blue',
       badge: 0,
       name: '新品上市'
     }, {
       icon: 'home',
-      color: 'red',
+      color: 'blue',
       badge: 22,
       name: '闲置出租'
     }, {
       icon: 'flashbuyfill',
-      color: 'red',
+      color: 'blue',
       badge: 0,
       name: '二手交易'
     }, {
       icon: 'github',
-      color: 'red',
+      color: 'blue',
       badge: 0,
       name: '宠物托管'
     }],

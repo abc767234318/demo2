@@ -1,7 +1,7 @@
 <!--pages/basics/basics.wxml-->
 
 <!-- 顶部信息 -->
-<cu-custom bgColor="bg-white">
+<cu-custom bgColor="bg-gradual-blue">
 	<view class="title" slot="content">潮流梦想家</view>
 </cu-custom>
 
