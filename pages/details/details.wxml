@@ -30,10 +30,9 @@
 
 <!-- 详情页 -->
 <view wx:if="{{current=='tab1'}}">
-  <view wx:for="{{detail}}" >
-    <image class="tupian" mode="widthFix" data-src="{{item}}" src="{{item}}" bindtap="previewImage"></image>
+  <view class='bg' wx:for="{{detail}}" >
+    <image class='full' mode="widthFix" data-src="{{item}}" src="{{item}}" bindtap="previewImage"></image>
   </view>
-  <i-load-more class="tip" tip="已经到底啦" loading="{{ false }}" />
 </view>
 
 <view class="cu-bar bg-white tabbar border shop page__hd" style="position:fixed; bottom:0;width: 750rpx;" >
@@ -50,7 +49,7 @@
     </view>
 
    <view class="btn-group">
-      <button class="cu-btn bg-orange round shadow-blur">加入购物车</button>
+      <button class="cu-btn bg-orange round shadow-blur" bindtap="show">加入购物车</button>
       <button class="cu-btn bg-red round shadow-blur">立即购买</button>
   </view>
 </view>

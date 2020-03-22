@@ -18,6 +18,11 @@ Page({
 
     // 商品详情介绍
   },
+
+  show: function(e) { //提示加入购物车成功
+    Toast.success('成功文案');
+  },
+
   handleChange ({ detail }) {
     this.setData({
         current: detail.key
@@ -37,7 +42,7 @@ Page({
   // 加入购物车
 
   // 立即购买
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -124,6 +129,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    
   }
 })

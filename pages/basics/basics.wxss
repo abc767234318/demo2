@@ -13,3 +13,26 @@ page{
   font-size: 30rpx;
   color: red;
 }
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -99999;
+}
+.bg image {
+  width: 100%;
+  height: 100%;
+}
+swiper {
+  height: 500rpx;
+}
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15rpx;
+  margin-bottom: 0rpx;
+}

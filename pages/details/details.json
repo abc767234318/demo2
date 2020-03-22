@@ -4,6 +4,7 @@
     "van-goods-action-icon": "../../dist2/goods-action-icon/index",
     "van-goods-action-button": "../../dist2/goods-action-button/index",
     "van-submit-bar": "../../dist2/submit-bar/index",
+    "van-toast": "../../dist2/toast/index",
     "i-tabs": "../../iview/tabs/index",
     "i-tab": "../../iview/tab/index",
     "i-load-more": "../../iview/load-more/index",

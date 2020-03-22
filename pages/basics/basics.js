@@ -13,32 +13,37 @@ Page({
 
     url2:'../details/details', //商品详情页
     iconList: [{
-
+      id:'0',
       icon: 'shop',
       color: 'blue',
       badge: 120,
       name: '正品'
     }, {
+      id:'1',
       icon: 'skin',
       color: 'blue',
       badge: 1,
       name: '我要定制'
     }, {
+      id:'2',
       icon: 'goods',
       color: 'blue',
       badge: 0,
       name: '新品上市'
     }, {
+      id:'3',
       icon: 'home',
       color: 'blue',
       badge: 22,
       name: '闲置出租'
     }, {
+      id:'4',
       icon: 'flashbuyfill',
       color: 'blue',
       badge: 0,
       name: '二手交易'
     }, {
+      id:'5',
       icon: 'github',
       color: 'blue',
       badge: 0,
@@ -63,13 +68,7 @@ Page({
   show1: function(e) { //点击宫格
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({ 
-      url: '/pages/'+e.currentTarget.dataset.id+'/'+e.currentTarget.dataset.id, //跳转到详情页
-      //正品：shop
-      //我要定制：skin
-      //新品上市：goods
-      //闲置出租:home
-      //二手交易：flashbuyfill
-      //宠物托管：github
+      url: '/pages/shop/shop?id='+e.currentTarget.dataset.id, //跳转到详情页
     });
   },
 
