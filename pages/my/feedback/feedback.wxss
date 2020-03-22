@@ -1,5 +1,7 @@
 /* pages/my/feedback/feedback.wxss */
-
+page {
+  background: white;
+}
 .feedbackText {
   width: 90%;
   min-height: 200px;

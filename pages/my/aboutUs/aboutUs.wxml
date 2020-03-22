@@ -1,5 +1,4 @@
 <!--pages/my/aboutUs/aboutUs.wxml-->
-<text>pages/my/aboutUs/aboutUs.wxml</text>
 
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>

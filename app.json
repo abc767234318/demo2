@@ -9,7 +9,14 @@
     "pages/faxian/faxian",
     "pages/upload/upload",
     "pages/details/details",
-    "pages/form/form"
+    "pages/form/form",
+    "pages/self/self",
+    "pages/shop/shop",
+    "pages/skin/skin",
+    "pages/goods/goods",
+    "pages/home/home",
+    "pages/flashbuyfill/flashbuyfill",
+    "pages/github/github"
   ],
   "window": {
     "backgroundTextStyle": "light",

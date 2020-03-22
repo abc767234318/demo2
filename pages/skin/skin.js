@@ -1,13 +1,6 @@
-// pages/my/home/home.js
+// pages/skin/skin.js
 Page({
-  data:{
 
-  },
-  open: function(e) {
-    wx.navigateTo({ 
-      url: '/pages/self/self', //跳转到个人信息页
-    });
-  },
   /**
    * 页面的初始数据
    */

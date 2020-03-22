@@ -37,7 +37,7 @@ Page({
   // 加入购物车
 
   // 立即购买
-  buy: function(e) {
+  immeBuy: function(e) {
     wx.navigateTo({ 
       url: '/pages/form/form' //跳转到购买页
     });
@@ -72,8 +72,8 @@ Page({
           comName:res.data.data[0]['comName'],
           price:res.data.data[0]['price'],
           userName:res.data.data[0]['userName'],
-          imgUrls:path1,
-          detail:path2
+          imgUrls:path1, //轮播图的地址
+          detail:path2  //详情图
         })
         console.log(res.data.data[0]['photo'].split(";"))
       }

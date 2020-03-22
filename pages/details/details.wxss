@@ -124,3 +124,11 @@ text {
   font-size: 40rpx;
   color: red;
 }
+.detail-nav .anniu{
+  background-color:#FFCC00;
+  color: white;
+}
+.detail-nav .anniu2{
+  background-color:red;
+  color: white;
+}

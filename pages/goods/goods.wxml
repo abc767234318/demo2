@@ -1,0 +1,5 @@
+<!--pages/goods/goods.wxml-->
+<cu-custom bgColor="bg-gradual-white" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">新品上市</view>
+</cu-custom>

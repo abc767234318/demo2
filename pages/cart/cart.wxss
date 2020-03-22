@@ -53,3 +53,6 @@ navigator{
   margin-left:10px;
   font-size:15px;
 }
+.title{
+  font-size: 40rpx;
+}

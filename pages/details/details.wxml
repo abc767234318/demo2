@@ -33,8 +33,15 @@
   <view wx:for="{{detail}}" >
     <image class="tupian" mode="widthFix" data-src="{{item}}" src="{{item}}" bindtap="previewImage"></image>
   </view>
+
+  <view class="detail-nav">
+  <image bindtap="toCar" src="/images/kefu.jpg"  />
+  <view class="line_nav"></view>
+  <image bindtap="addLike" src="/images/gouwuche1.jpg"  />
+  <button class="anniu" bindtap="addCar" formType="submit">加入购物车</button>
+  <button class="anniu2" bindtap="immeBuy" formType="submit">立即购买</button>
+  </view>
   <i-load-more class="tip" tip="已经到底啦" loading="{{ false }}" />
-  
 </view>
 
 <!-- 评价页 -->

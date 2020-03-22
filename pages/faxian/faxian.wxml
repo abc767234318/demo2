@@ -1,2 +1,21 @@
 <!--pages/faxian/faxian.wxml-->
-<text>pages/faxian/faxian.wxml</text>
+<cu-custom bgColor="bg-white">
+	<view class="title" slot="content">发现</view>
+</cu-custom>
+<!--轮番图-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image class="tupian" mode="widthFix" src="{{item}}" bindtap="previewImage"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      Tab-{{item.name}}
+    </view>
+  </scroll-view>
+
+</view>

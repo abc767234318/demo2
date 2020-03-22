@@ -6,64 +6,41 @@ Page({
    * 页面的初始数据
    */
   data: {
+    indicatorDots: true, //是否显示面板指示点
+    autoplay: true, //是否自动切换
+    interval: 3000, //自动切换时间间隔,3s
+    duration: 1000, //  滑动动画时长1s
+
     url2:'../details/details', //商品详情页
-    swiperList: [{      //轮播图图片路径
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-        type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }, {
-      id: 3,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-    }, {
-      id: 4,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-    }, {
-      id: 5,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-    }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }],
     iconList: [{
-      icon: 'cardboardfill',
+
+      icon: 'shop',
       color: 'red',
       badge: 120,
       name: '正品'
     }, {
-      icon: 'recordfill',
-      color: 'orange',
+      icon: 'skin',
+      color: 'red',
       badge: 1,
       name: '我要定制'
     }, {
-      icon: 'picfill',
-      color: 'yellow',
+      icon: 'goods',
+      color: 'red',
       badge: 0,
       name: '新品上市'
     }, {
-      icon: 'noticefill',
-      color: 'olive',
+      icon: 'home',
+      color: 'red',
       badge: 22,
       name: '闲置出租'
     }, {
-      icon: 'upstagefill',
-      color: 'cyan',
+      icon: 'flashbuyfill',
+      color: 'red',
       badge: 0,
       name: '二手交易'
     }, {
-      icon: 'clothesfill',
-      color: 'blue',
+      icon: 'github',
+      color: 'red',
       badge: 0,
       name: '宠物托管'
     }],
@@ -76,12 +53,26 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  show: function(e) {
+  show: function(e) { //点击对应商品
     console.log(e)
     wx.navigateTo({ 
       url: '/pages/details/details?id='+e.currentTarget.dataset.id, //跳转到详情页
     });
   },
+
+  show1: function(e) { //点击宫格
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({ 
+      url: '/pages/'+e.currentTarget.dataset.id+'/'+e.currentTarget.dataset.id, //跳转到详情页
+      //正品：shop
+      //我要定制：skin
+      //新品上市：goods
+      //闲置出租:home
+      //二手交易：flashbuyfill
+      //宠物托管：github
+    });
+  },
+
 
   onLoad: function (options) {
     var that = this;
@@ -98,13 +89,16 @@ Page({
         'csrf-csrf': 'csrf-csrf'
       },
       success: function (res) {
+        var path=new Array() ;
         for (var i = 0; i < 3; ++i) { //处理photo字段下的数据，只保留第一张图片，用于显示商品
           res.data.data[i]["photo"]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+res.data.data[i]["photo"].split(";")[0]
           console.log(res.data.data[i]["photo"])
+          path[i]=res.data.data[i]["photo"] //为轮播图设置路径
         }
         that.setData(
           {
             goods:res.data.data,
+            imgUrls:path
           }
         )
         console.log(res)

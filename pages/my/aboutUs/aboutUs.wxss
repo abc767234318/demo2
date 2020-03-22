@@ -1,1 +1,4 @@
 /* pages/my/aboutUs/aboutUs.wxss */
+page {
+  background: white;
+}

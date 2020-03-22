@@ -1,9 +1,11 @@
 /* pages/my/home/home.wxss */
-
+page{
+  background: white;
+}
 .UCenter-bg {
   
   background-size: cover;
-  height: 450rpx;
+  height: 350rpx;
   display: flex;
   justify-content: center;
   padding-top: 40rpx;
@@ -45,4 +47,11 @@ map,.mapBox{
 map,.mapBox{
   width: 750rpx;
   height: 300rpx;
+}
+
+.title{
+  font-size: 40rpx;
+}
+.text-xl{
+  font-size: 27rpx;
 }

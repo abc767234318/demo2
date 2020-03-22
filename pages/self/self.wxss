@@ -1,0 +1,19 @@
+/* pages/self/self.wxss */
+.nav{
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+  background-color: white;
+  font-size: 30rpx;
+}
+.nav-switch-style{
+  color: red;
+}
+.style-default{
+  padding: 100rpx 0;
+  text-align: center;
+}
+.style-roll{
+  padding: 100rpx 0;
+  text-align: center;
+}

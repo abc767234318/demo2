@@ -1,20 +1,29 @@
-// pages/my/home/home.js
+// pages/self/self.js
 Page({
-  data:{
 
-  },
-  open: function(e) {
-    wx.navigateTo({ 
-      url: '/pages/self/self', //跳转到个人信息页
-    });
-  },
   /**
    * 页面的初始数据
    */
   data: {
+    navState: 0,//导航状态
 
   },
-
+  //监听滑块
+  bindchange(e) {
+    // console.log(e.detail.current)
+    let index = e.detail.current;
+    this.setData({
+      navState:index
+    })
+  },
+  //点击导航
+  navSwitch: function(e) {
+    // console.log(e.currentTarget.dataset.index)
+    let index = e.currentTarget.dataset.index;
+    this.setData({
+      navState:index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
