@@ -1,1 +1,8 @@
 /* pages/shop/shop.wxss */
+page {
+
+  background: white;
+}
+.price {
+  color: red;
+}

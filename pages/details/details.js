@@ -19,9 +19,6 @@ Page({
     // 商品详情介绍
   },
 
-  show: function(e) { //提示加入购物车成功
-    Toast.success('成功文案');
-  },
 
   handleChange ({ detail }) {
     this.setData({
@@ -29,20 +26,40 @@ Page({
     });
   },
 
-  //预览图片
-  previewImage: function (e) {
-    var current = e.target.dataset.src;
-  },
-  // 收藏
-  addLike() {
+  // 加入购物车
+  showModal(e) {
     this.setData({
-      isLike: !this.data.isLike
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  //打开购物车
+  openCart: function(e) { //点击客服
+    console.log(e)
+    wx.navigateTo({ 
+      //跳转到购物车
+      url: ''
     });
   },
-  // 加入购物车
-
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
   // 立即购买
-
+  buy: function(e) { //点击对应商品
+    console.log(e)
+    wx.navigateTo({ 
+      url: '/pages/form/form' //跳转到购买
+    });
+  },
+  //客服
+  chat: function(e) { //点击客服
+    console.log(e)
+    wx.navigateTo({ 
+      //跳转到客服
+      url: '/pages/chat/chat?userPhoto='+e.currentTarget.dataset.userphoto+'&userName='+e.currentTarget.dataset.username
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -74,7 +91,8 @@ Page({
           price:res.data.data[0]['price'],
           userName:res.data.data[0]['userName'],
           imgUrls:path1, //轮播图的地址
-          detail:path2  //详情图
+          detail:path2,  //详情图
+          userPhoto:res.data.data[0]['userPhoto'],
         })
         console.log(res.data.data[0]['photo'].split(";"))
       }

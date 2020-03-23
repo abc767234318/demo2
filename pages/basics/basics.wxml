@@ -10,7 +10,7 @@
 
   <block wx:for="{{imgUrls}}">
     <swiper-item>
-      <image class="tupian" mode="widthFix" src="{{item}}" bindtap="previewImage"></image>
+      <image class="tupian" mode="widthFix" src="{{item.photo}}"bindtap="pic" data-id="{{item.comId}}"></image>
     </swiper-item>
   </block>
 </swiper>

@@ -12,11 +12,7 @@
     "pages/form/form",
     "pages/self/self",
     "pages/shop/shop",
-    "pages/skin/skin",
-    "pages/goods/goods",
-    "pages/home/home",
-    "pages/flashbuyfill/flashbuyfill",
-    "pages/github/github"
+    "pages/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",

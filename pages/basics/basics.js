@@ -16,13 +16,13 @@ Page({
       id:'0',
       icon: 'shop',
       color: 'blue',
-      badge: 120,
+      badge: 0,
       name: '正品'
     }, {
       id:'1',
       icon: 'skin',
       color: 'blue',
-      badge: 1,
+      badge: 0,
       name: '我要定制'
     }, {
       id:'2',
@@ -34,7 +34,7 @@ Page({
       id:'3',
       icon: 'home',
       color: 'blue',
-      badge: 22,
+      badge: 0,
       name: '闲置出租'
     }, {
       id:'4',
@@ -58,6 +58,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  pic: function(e) { //点击对应商品
+    console.log(e)
+    wx.navigateTo({ 
+      url: '/pages/details/details?id='+e.currentTarget.dataset.id, //跳转到详情页
+    });
+  },
   show: function(e) { //点击对应商品
     console.log(e)
     wx.navigateTo({ 
@@ -74,8 +80,33 @@ Page({
 
 
   onLoad: function (options) {
+    //获取轮播图
     var that = this;
-    console.log("hahahahaha")
+    wx.request({
+      url: (app.globalData.url + 'commodity/getAll'),
+      method:'post',
+      data: {
+        start:'3',
+        end:'4'
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        'csrf-csrf': 'csrf-csrf'
+      },
+      success: function (res) {
+        for (var i = 0; i < res.data.data.length; ++i) { //处理photo字段下的数据，只保留第一张图片，用于显示商品
+          res.data.data[i]["photo"]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+res.data.data[i]["photo"].split(";")[0]
+          console.log(res.data.data[i]["photo"])
+        }
+        that.setData(
+          {
+            imgUrls:res.data.data,
+          }
+        )
+        console.log(res)
+      }
+    })
+
     wx.request({
       url: (app.globalData.url + 'commodity/getAll'),
       method:'post',
@@ -88,16 +119,13 @@ Page({
         'csrf-csrf': 'csrf-csrf'
       },
       success: function (res) {
-        var path=new Array() ;
-        for (var i = 0; i < 3; ++i) { //处理photo字段下的数据，只保留第一张图片，用于显示商品
+        for (var i = 0; i < res.data.data.length; ++i) { //处理photo字段下的数据，只保留第一张图片，用于显示商品
           res.data.data[i]["photo"]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+res.data.data[i]["photo"].split(";")[0]
           console.log(res.data.data[i]["photo"])
-          path[i]=res.data.data[i]["photo"] //为轮播图设置路径
         }
         that.setData(
           {
             goods:res.data.data,
-            imgUrls:path
           }
         )
         console.log(res)

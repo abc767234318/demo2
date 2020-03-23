@@ -1,5 +1,5 @@
 <!--pages/form/form.wxml-->
-<cu-custom bgColor="bg-gradual-white" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
 	<view slot="content">请填写信息</view>
 </cu-custom>
@@ -27,7 +27,7 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">手机号码</view>
-		<input placeholder="输入框带标签"></input>
+		<input placeholder="请输入手机号"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86

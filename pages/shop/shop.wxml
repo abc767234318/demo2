@@ -1,12 +1,12 @@
 <!--pages/shop/shop.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
-	<view slot="content">正品</view>
+	<view slot="content">{{id}}</view>
 </cu-custom>
 
 <!--商品卡片-->
 <view wx:for="{{goods}}" wx:for-item="good">
-<view class="cu-card case {{isCard?'no-card':''}}">
+<view class="cu-card case {{isCard?'no-card':''}}" bindtap="show" data-id="{{good.comId}}">
   <view class="cu-item shadow">
     <view class="image">
       <image src="{{good.photo}}" mode="widthFix"></image>
@@ -17,15 +17,22 @@
     </view>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="cu-avatar round lg" style="background-image:url({{good.userPhoto}});"></view>
         <view class="content flex-sub">
-          <view class="text-grey">"{{good.userName}}"</view>
           <view class="text-gray text-sm flex justify-between">
-            "{{good.creatTime}}"
+            {{good.userName}}
             <view class="text-gray text-sm">
-              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+            <text class="price">¥{{good.price}}</text>
             </view>
           </view>
+
+          <view class="text-gray text-sm flex justify-between">
+            {{good.createTime}}
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs" ></text>{{good.see}}
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
