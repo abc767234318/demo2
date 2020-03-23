@@ -75,6 +75,20 @@
 
 <!-- 评价页 -->
 <view wx:if="{{current=='tab2'}}">
-<image src="../../images/buy.png" mode="aspectFill">  
-</image>
+<view wx:for="{{goods}}" wx:for-item="good">
+<view class="cu-list menu-avatar comment solids-top">
+      <view class="cu-item">
+        <view class="cu-avatar round" style="background-image:url({{good.userPhoto}});"></view>
+        <view class="content">
+          <view class="text-grey">{{good.userName}}</view>
+          <view class="text-gray text-content text-df">
+            {{good.evaluate}}
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">{{good.createTime}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

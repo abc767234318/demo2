@@ -97,6 +97,30 @@ Page({
         console.log(res.data.data[0]['photo'].split(";"))
       }
     })
+    //获取商品评价
+    wx.request({
+      url: (app.globalData.url + 'evaluate/getEvas'),
+      method:'post',
+      data: {
+        comId:options.id,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        'csrf-csrf': 'csrf-csrf'
+      },
+      success: function (res) {
+        for(var i=0;i< res.data.data.length;++i){
+          //处理用户头像图片路径
+          res.data.data[i]['userPhoto']="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+res.data.data[i]['userPhoto']
+          //处理创建时间
+          res.data.data[i]['createTime']=res.data.data[i]["createTime"].split(" ")[0] 
+        }
+        that.setData({
+          goods:res.data.data
+        })
+        console.log(res.data.data[0]['photo'].split(";"))
+      }
+  })
     
     console.log(id)
   },
