@@ -98,6 +98,7 @@ Page({
           res.data.data[i]["photo"]="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/"+res.data.data[i]["photo"].split(";")[0]
           console.log(res.data.data[i]["photo"])
         }
+        console.log(res.data.data)
         that.setData(
           {
             imgUrls:res.data.data,
