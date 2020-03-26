@@ -5,39 +5,43 @@
 </cu-custom>
 
 <view class="margin---">
-  <view>
-    <image class="carts-select" src="{{select}}" bindtap="chooseAll" data-id="{{select}}"/>
+	<view>
+		<image class="carts-select" src="{{select}}" bindtap="chooseAll" data-id="{{select}}" />
 	</view>
-	<text>全选</text>
-	<view class="jiesuan">
-	  <button class="cu-btn round" color="red">结算</button>
+	<view class="haha">
+		<text stype="flex">全选</text>
 	</view>
+
 </view>
 
 <view wx:for="{{goods}}" wx:for-item="good" class="cart">
-<view class="margin--" bindtap="choose"  data-index="{{index}}">
-  <!-- 选择框 -->
-  <view class="carts-radio">
-    <image class="carts-select" src="{{good.select}}" />
-  </view>
-  
-	<!-- 商品信息 -->
-  <view class="carts-detail">
-	  <view class="image">
-      <image class="carts-image" src="{{good.photo}}" mode="widthFix" />
+	<view class="margin--" bindtap="choose" data-index="{{index}}">
+		<!-- 选择框 -->
+		<view class="carts-radio">
+			<image class="carts-select" src="{{good.select}}" />
 		</view>
-		<view class="block">
-		  <view class="comNameView">
-		    <text class="comName">{{good.comName}}</text>
-			</view>
-			<view class="priceView">
-		    <text class="price">¥{{good.price}}</text>
-			</view>
-			<view class="userNameView">
-		    <text class="userName">{{good.userName}}</text>
-			</view>
-	  </view>
-  </view>
 
+		<!-- 商品信息 -->
+		<view class="carts-detail">
+			<view class="image">
+				<image class="carts-image" src="{{good.photo}}" mode="widthFix" />
+			</view>
+			<view class="block">
+				<view class="comNameView">
+					<text class="comName">{{good.comName}}</text>
+				</view>
+				<view class="priceView">
+					<text class="price">¥{{good.price}}</text>
+				</view>
+				<view class="userNameView">
+					<text class="userName">{{good.userName}}</text>
+				</view>
+			</view>
+		</view>
+
+	</view>
 </view>
+
+<view class="jiesuan">
+	<button class="cu-btn bg-green shadow-blur round lg">立即结算</button>
 </view>
