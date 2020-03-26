@@ -6,6 +6,34 @@ Page({
    */
   data: {
   },
+  chooseAll: function(e) { //点击全选
+    var that = this;
+    if(e.currentTarget.dataset.id=="../../images/collect.png"){
+      var newgoods = that.data.goods;
+      for(let i in newgoods){
+        newgoods[i].select = "../../images/collect2.png"
+      }
+      that.setData(
+        {
+          select:"../../images/collect2.png",
+          goods:newgoods
+        }
+      )
+    }
+    
+    else if(e.currentTarget.dataset.id=="../../images/collect2.png"){
+      var newgoods = that.data.goods;
+      for(let i in newgoods){
+        newgoods[i].select = "../../images/collect.png"
+      }
+      that.setData(
+        {
+          select:"../../images/collect.png",
+          goods:newgoods
+        }
+      )
+    }
+  },
   show: function(e) { //点击对应商品
     console.log(e)
     wx.navigateTo({ 
@@ -15,10 +43,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  choose: function (e) {
+    var that = this;
+    var newgoods = that.data.goods;
+    console.log(e.currentTarget.dataset.index)
+    for(let i in newgoods){
+      if (i == e.currentTarget.dataset.index) {
+        //根据下标找到目标,改变状态  
+        if (newgoods[i].select == "../../images/collect2.png")
+        newgoods[i].select = "../../images/collect.png"
+        else if (newgoods[i].select == "../../images/collect.png")
+        newgoods[i].select = "../../images/collect2.png"
+      }
+    }
+    that.setData(
+      {
+        goods:newgoods
+      }
+    )
+  },
   onLoad: function (options) {
     var that = this;
+    that.setData(
+      {
+        select:"../../images/collect.png"
+      }
+    )
     //获取购物车商品id串
-    
     wx.request({
       url: (app.globalData.url + 'user-detail/getCart'),
       method:'post',

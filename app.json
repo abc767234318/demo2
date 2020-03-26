@@ -12,7 +12,8 @@
     "pages/form/form",
     "pages/self/self",
     "pages/shop/shop",
-    "pages/chat/chat"
+    "pages/chat/chat",
+    "pages/information/information"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,7 +32,7 @@
         "selectedIconPath": "images/1.png"
       },
       {
-        "pagePath": "pages/upload/upload",
+        "pagePath": "pages/information/information",
         "text": "发现",
         "iconPath": "images/2.png",
         "selectedIconPath": "images/2.png"

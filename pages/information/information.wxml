@@ -1,0 +1,6 @@
+<!--pages/information/information.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+	<view class="title" slot="content">发现</view>
+</cu-custom>
+
+<web-view src="https://mp.weixin.qq.com/s/-ZEZixzX2EppF2D0PLUzBg"></web-view>

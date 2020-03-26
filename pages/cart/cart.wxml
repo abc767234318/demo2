@@ -4,15 +4,40 @@
 	<view class="title" slot="content">购物车</view>
 </cu-custom>
 
-<view wx:for="{{goods}}" wx:for-item="good">
-		<!-- 商品卡片 -->
-		<i-card class="icard" 
-		data-id="{{good.comId}}" 	
-		bindtap="show" 
-		extra="￥{{good.price}}" 
-		thumb="{{good.photo}}"
-		>
-		<view class="name" slot="content">{{good.comName}}</view>
-		<view class="store" slot="content">{{good.userName}}</view>
-		</i-card>
+<view class="margin---">
+  <view>
+    <image class="carts-select" src="{{select}}" bindtap="chooseAll" data-id="{{select}}"/>
+	</view>
+	<text>全选</text>
+	<view class="jiesuan">
+	  <button class="cu-btn round" color="red">结算</button>
+	</view>
+</view>
+
+<view wx:for="{{goods}}" wx:for-item="good" class="cart">
+<view class="margin--" bindtap="choose"  data-index="{{index}}">
+  <!-- 选择框 -->
+  <view class="carts-radio">
+    <image class="carts-select" src="{{good.select}}" />
+  </view>
+  
+	<!-- 商品信息 -->
+  <view class="carts-detail">
+	  <view class="image">
+      <image class="carts-image" src="{{good.photo}}" mode="widthFix" />
+		</view>
+		<view class="block">
+		  <view class="comNameView">
+		    <text class="comName">{{good.comName}}</text>
+			</view>
+			<view class="priceView">
+		    <text class="price">¥{{good.price}}</text>
+			</view>
+			<view class="userNameView">
+		    <text class="userName">{{good.userName}}</text>
+			</view>
+	  </view>
+  </view>
+
+</view>
 </view>

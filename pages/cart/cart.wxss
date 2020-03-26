@@ -1,4 +1,7 @@
 /* pages/cart/cart.wxss */
+page{
+  background-color: white;
+}
 .name{
   font-size: 30rpx;
   color: black;
@@ -6,4 +9,56 @@
 .store{
   font-size: 30rpx;
   color: red;
+}
+.carts-select{
+  width: 20px;
+  height: 20px;
+}
+.carts-image{
+  width: 100px;
+}
+.carts-radio{
+  display: flex;
+  align-items: center;
+}
+.margin--{
+  display: flex;
+  margin: 5px 15px
+}
+.carts-detail{
+  display: flex;
+  margin-left: 10px;
+}
+.block{
+  margin-left: 10px;
+  display: block;
+}
+.comNameView{
+  margin-top: 10px;
+}
+.comName{
+  font-size:13px;
+  margin-top: 10px;
+}
+.priceView{
+  margin-top: 10px;
+}
+.price{
+  font-size:13px;
+  color:red;
+}
+.userNameView{
+  margin-top: 10px;
+}
+.userName{
+  font-size:13px;
+}
+.margin---{
+  display: flex;
+  margin: 15px 15px;
+  align-items: center;
+}
+.jiesuan{
+  justify-content: right;
+  margin-left:265px;
 }
