@@ -13,7 +13,9 @@
     "pages/self/self",
     "pages/shop/shop",
     "pages/chat/chat",
-    "pages/information/information"
+    "pages/information/information",
+    "pages/showinformation/showinformation"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

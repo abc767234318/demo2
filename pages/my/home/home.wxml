@@ -1,71 +1,70 @@
 <!--pages/my/home/home.wxml-->
 <!-- 顶部信息 -->
-<cu-custom bgColor="bg-gradual-white">
-	<view class="title" slot="content">我的主页</view>
+<cu-custom bgColor="bg-gradual-blue">
+	<view class="title" slot="content">个人主页</view>
 </cu-custom>
 
 <scroll-view scroll-y class="scrollPage">
-  <view class="UCenter-bg">
-    <image src="/images/logo.png" class="png" mode="widthFix"></image>
-    <view class="text-xl">潮流梦想家
-    </view>
-    <view class="margin-top-sm">
-    </view>
-  </view>
+	<view class="UCenter-bg">
+		<image src="/images/logo.png" class="png" mode="widthFix"></image>
+		<view class="text-xl">潮流梦想家
+		</view>
+		<view class="margin-top-sm">
+		</view>
+	</view>
 
-  <view bindtap="open" class="padding flex text-center text-grey bg-white shadow-warp">
+	<view bindtap="open" class="padding flex text-center text-grey bg-white shadow-warp">
 
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="margin-top-sm">
-        <text class="cuIcon-pay"></text>待付款</view>
-    </view>
+		<view class="flex flex-sub flex-direction solid-right">
+			<view class="margin-top-sm">
+				<text class="cuIcon-pay"></text>待付款</view>
+		</view>
 
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="margin-top-sm">
-        <text class="cuIcon-present"></text>待收货</view>
-    </view>
+		<view class="flex flex-sub flex-direction solid-right">
+			<view class="margin-top-sm">
+				<text class="cuIcon-present"></text>待收货</view>
+		</view>
 
-    <view class="flex flex-sub flex-direction">
-      <view class="margin-top-sm">
-        <text class="cuIcon-roundcheck"></text>待评价</view>
-    </view>
+		<view class="flex flex-sub flex-direction">
+			<view class="margin-top-sm">
+				<text class="cuIcon-roundcheck"></text>待评价</view>
+		</view>
 
-    <view class="flex flex-sub flex-direction solid-right" >
-      <view class="margin-top-sm">
-        <text class="cuIcon-service"></text>售后</view>
-    </view>
+		<view class="flex flex-sub flex-direction solid-right">
+			<view class="margin-top-sm">
+				<text class="cuIcon-service"></text>售后</view>
+		</view>
 
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{visitTotal}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-form"></text> 全部</view>
-    </view>
-  </view>
+		<view class="flex flex-sub flex-direction solid-right">
+			<view class="text-xxl text-orange">{{visitTotal}}</view>
+			<view class="margin-top-sm">
+				<text class="cuIcon-form"></text> 全部</view>
+		</view>
+	</view>
 
-  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
 
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
-        <image src="/images/wodexinxi.jpg" class="png" mode="aspectFit"></image>
-        <text class="text-grey">个人信息</text>
-      </navigator>
-    </view>
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/about/about/about" hover-class="none">
+				<image src="/images/wodexinxi.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">个人信息</text>
+			</navigator>
+		</view>
 
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/my/feedback/feedback" hover-class="none">
-        <image src="/images/chanpingfankui.jpg" class="png" mode="aspectFit"></image>
-        <text class="text-grey">产品反馈</text>
-      </navigator>
-    </view>
-    
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/my/aboutUs/aboutUs" hover-class="none">
-        <image src="/images/guanyuwomen.jpg" class="png" mode="aspectFit"></image>
-        <text class="text-grey">关于我们</text>
-      </navigator>
-    </view>
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/my/feedback/feedback" hover-class="none">
+				<image src="/images/chanpingfankui.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">产品反馈</text>
+			</navigator>
+		</view>
 
-  </view>
-  <view class="cu-tabbar-height"></view>
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/my/aboutUs/aboutUs" hover-class="none">
+				<image src="/images/guanyuwomen.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">关于我们</text>
+			</navigator>
+		</view>
+
+	</view>
+	<view class="cu-tabbar-height"></view>
 </scroll-view>
-

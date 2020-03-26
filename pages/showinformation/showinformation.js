@@ -1,5 +1,4 @@
-// pages/information/information.js
-const app = getApp()
+// pages/showinformation/showinformation.js
 Page({
 
   /**
@@ -8,39 +7,16 @@ Page({
   data: {
 
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: app.globalData.url + 'information/getAll',
-      method: 'post',
-      data: {
-        start: '0',
-        end: '1'
-      },
-      header: {
-        "content-type": "application/x-www-form-urlencoded",
-        'csrf-csrf': 'csrf-csrf'
-      },
-      success: function (res) {
-        that.setData(
-          {
-            informations: res.data.data
-          }
-        )
-        console.log(res)
-      }
+    this.setData({
+      url: options.url   // 通过传参实现跳转公众号推文
     })
   },
-  bindViewTap: function (e) {
-    console.log(e.currentTarget.dataset.index.url)
-    var url = e.currentTarget.dataset.index.url
-    wx.navigateTo({
-      url: '/pages/showinformation/showinformation?url='+url
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

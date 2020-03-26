@@ -3,4 +3,23 @@
 	<view class="title" slot="content">发现</view>
 </cu-custom>
 
-<web-view src="https://mp.weixin.qq.com/s/-ZEZixzX2EppF2D0PLUzBg"></web-view>
+<view wx:for="{{informations}}" wx:for-index="index" wx:for-item="information">
+	<view class="cu-card article " bindtap="bindViewTap" data-index="{{information}}">
+		<view class="cu-item shadow">
+			<view class="title">
+				<view class="text-cut">{{information.intro}}</view>
+			</view>
+			<view class="content">
+				<image src="http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/uploads/{{information.photo}}" mode="aspectFill"></image>
+				<view class="desc">
+					<view class="text-content">{{information.details}}</view>
+					<view>
+						<view class="cu-tag bg-red light sm round">{{information.category}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
