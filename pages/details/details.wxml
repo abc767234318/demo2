@@ -5,6 +5,8 @@
 	<view slot="content">商品详情</view>
 </cu-custom>
 
+
+
 <!--轮播图-->
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 
