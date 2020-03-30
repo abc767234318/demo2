@@ -4,10 +4,10 @@
 	<view class="title" slot="content">个人主页</view>
 </cu-custom>
 
-<scroll-view scroll-y class="scrollPage">
+<scroll-view scroll-y class="scrollPage" wx:if="{{type==0}}">
 	<view class="UCenter-bg">
-		<image src="/images/logo.png" class="png" mode="widthFix"></image>
-		<view class="text-xl">潮流梦想家
+		<image src="{{user.avatarUrl}}" class="png" mode="widthFix"></image>
+		<view class="text-xl">{{user.nickName}}
 		</view>
 		<view class="margin-top-sm">
 		</view>
@@ -45,11 +45,55 @@
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
 
 		<view class="cu-item arrow">
-			<navigator class="content" url="/pages/about/about/about" hover-class="none">
+			<navigator class="content" url="/pages/my/userdetail/userdetail" hover-class="none">
 				<image src="/images/wodexinxi.jpg" class="png" mode="aspectFit"></image>
 				<text class="text-grey">个人信息</text>
 			</navigator>
 		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/my/feedback/feedback" hover-class="none">
+				<image src="/images/chanpingfankui.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">产品反馈</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/my/aboutUs/aboutUs" hover-class="none">
+				<image src="/images/guanyuwomen.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">关于我们</text>
+			</navigator>
+		</view>
+
+	</view>
+	<view class="cu-tabbar-height"></view>
+</scroll-view>
+
+<scroll-view scroll-y class="scrollPage" wx:if="{{type==1}}">
+	<view class="UCenter-bg">
+		<image src="{{user.avatarUrl}}" class="png" mode="widthFix"></image>
+		<view class="text-xl">{{user.nickName}}
+		</view>
+		<view class="margin-top-sm">
+		</view>
+	</view>
+
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/my/userdetail/userdetail" hover-class="none">
+				<image src="/images/wodexinxi.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">个人信息</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/my/feedback/feedback" hover-class="none">
+				<image src="/images/chanpingfankui.jpg" class="png" mode="aspectFit"></image>
+				<text class="text-grey">商品上传</text>
+			</navigator>
+		</view>
+
 
 		<view class="cu-item arrow">
 			<navigator class="content" url="/pages/my/feedback/feedback" hover-class="none">

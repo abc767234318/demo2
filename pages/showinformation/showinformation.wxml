@@ -2,4 +2,5 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
 </cu-custom>
+
 <web-view src="https://mp.weixin.qq.com/s?__biz=MzI2MjI2MzY5MQ==&mid=2247483653&idx=1&sn=ab182f38c5ce9b74d825bff7f84255d0&chksm=ea4c87e1dd3b0ef7412cd3fd6d05298b59be555d81e5e346b5ac01167a42edd577dc163476e2&token=593644651&lang=zh_CN#rd"></web-view>

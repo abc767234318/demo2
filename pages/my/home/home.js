@@ -1,73 +1,59 @@
 // pages/my/home/home.js
+const app = getApp();
 Page({
-  data:{
-
+  data: {
+    useropenid: null,
+    type: null
   },
-  open: function(e) {
-    wx.navigateTo({ 
+  open: function (e) {
+    wx.navigateTo({
       url: '/pages/self/self', //跳转到个人信息页
     });
-  },
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    console.log(options)
+    wx.getStorage({
+      key: 'openId',
+      success: function (res) {
+        console.log(res)
+        this.data.useropenid = res.data
+        that.setData({
+          useropenid: res.data
+        })
+      },
+    })
+    wx.getStorage({
+      key: 'userinformation',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          user: res.data
+        })
+      }
+    })
+    wx.request({
+      url: app.globalData.url + '/user/getUser',
+      method: 'post',
+      data: {
+        openId: that.data.useropenid
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+        'csrf-csrf': 'csrf-csrf'
+      },
+      success: function (response) {
+        console.log(response)
+        that.setData({
+          type: '0'
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

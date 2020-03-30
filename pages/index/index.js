@@ -1,10 +1,17 @@
+//index.js
+//获取应用实例
 const app = getApp()
 var that
 Page({
     data: {
         //判断小程序的API，回调，参数，组件等是否在当前版本可用。
-        canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
+        canIUse: wx.canIUse('button.open-type.getUserInfo')
+    },
+    //事件处理函数
+    bindViewTap: function () {
+        wx.navigateTo({
+            url: '../logs/logs'
+        })
     },
     onLoad: function () {
 
@@ -21,19 +28,21 @@ Page({
                             console.log(app.globalData.openId)
                         }
                     })
+/*   //为了方便开发，省的每次都点击授权
                     wx.getUserInfo({
                         success: function (res) {
                             wx.switchTab({
-                                url: '/pages/basics/basics',
+                                url: '/pages/basics/basics',   //授权成功后跳转的页面
                             })
                         }
-                    });
+                    });*/
                 }
             }
         })
-    },
 
+    },
     bindGetUserInfo: function (e) {
+        console.log('测试是否通过')
         if (e.detail.userInfo) {
             console.log(e.detail.userInfo)
             wx.setStorage({
@@ -45,29 +54,28 @@ Page({
                 data: e.detail.userInfo.province
             })
 
-
             wx.login({
-
                 success(res) {
                     if (res.code) {
                         // 发起网络请求
-                        console.log(res)
-
+                        console.log('用户code' + res.code)
                         wx.request({
-                            url: (app.globalData.apiUrl + '?m=home&c=Api&a=getOpenId&appid=' + app.globalData.appId + '&secret=' + app.globalData.appSecret + '&js_code=' + res.code + '&grant_type=authorization_code').replace(/\s+/g, ""),
+                            url: ('https://api.weixin.qq.com/sns/jscode2session?appid=wxd804481d2303e5c9&secret=9172d3b53b987c6bacdede8c86127e60&js_code=' + res.code + '&grant_type=authorization_code'),
+                            // '?m=home&c=Api&a=getOpenId&appid=' + app.globalData.appId + '&secret=' + app.globalData.appSecret + '&js_code=' + res.code + '&grant_type=authorization_code').replace(/\s+/g, ""
                             // 'https://api.weixin.qq.com/sns/jscode2session?appid=' + app.globalData.appId + '&secret=' + app.globalData.appSecret + '&js_code=' + res.code + '&grant_type=authorization_code',
                             header: {
                                 'content-type': 'application/json' // 默认值                     
                             },
                             method: "GET",
                             success(res) {
+                                app.globalData.openId = res.data.openid;
                                 console.log(res)
-                                console.log(res.data)
+                                console.log("分割线")
                                 if (e.detail.userInfo) {
 
                                     wx.setStorage({
                                         key: 'openId',
-                                        data: res.data
+                                        data: res.data.openid
                                     })
                                     wx.request({
                                         url: (app.globalData.apiUrl + '?m=home&c=Api&a=Add&userid=' + res.data + '&province=' + e.detail.userInfo.province + '&city=' + e.detail.userInfo.city + '&nickname=' + e.detail.userInfo.nickName).replace(/\s+/g, ""),
@@ -98,7 +106,7 @@ Page({
                 }
             })
             wx.switchTab({
-                url: '../basics/basics',
+                url: '/pages/basics/basics',
             })
         } else {
             //用户按了拒绝按钮
@@ -114,24 +122,5 @@ Page({
                 }
             })
         }
-    },
-
-    // queryUsreInfo: function () {
-
-    //     wx.request({
-    //         url: (app.globalData.apiUrl + '?m=home&c=Api&a=Search&userid=' + app.globalData.openId).replace(/\s+/g, ""),
-    //         method: "GET",
-    //         header: {
-    //             'content-type': 'application/json'
-    //         },
-    //         success: function (res) {
-    //             console.log(res.data);
-    //             app.globalData.userInfo = res.data;
-    //             console.log(app.globalData.userInfo)
-
-    //         }
-
-    //     })
-    // },
-
+    }
 })

@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">个人信息</view>
+</cu-custom>
+
+<view class="cu-form-group">
+	<view class="title">昵称</view>
+	<view>智能垃圾桶001</view>
+</view>
+<view class="cu-form-group">
+	<view class="title">个性签名</view>
+	<view>海纳百川，有容乃大</view>
+</view>
+<view class="cu-form-group">
+	<view class="title">普通选择</view>
+	<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+		<view class="picker">
+			{{index?picker[index]:'男'}}
+		</view>
+	</picker>
+</view>
+<view class="cu-form-group">
+	<view class="title">真实姓名</view>
+	<view>ping</view>
+</view>
+<view class="cu-form-group">
+	<view class="title">出生日期</view>
+	<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+		<view class="picker">
+			{{date}}
+		</view>
+	</picker>
+</view>
+<view class="cu-form-group">
+	<view class="title">绑定电话</view>
+	<view>001****0001</view>
+</view>
+<view class="cu-form-group">
+	<view class="title">绑定邮箱</view>
+	<view>123**@**.com</view>
+</view>
+<view class="cu-form-group">
+	<view class="title">地址选择</view>
+	<picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+		<view class="picker">
+			{{region[0]}}，{{region[1]}}，{{region[2]}}
+		</view>
+	</picker>
+</view>
+
+<view class="change">
+	<button class="cu-btn bg-green shadow-blur round lg">确认修改</button>
+</view>

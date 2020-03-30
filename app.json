@@ -14,8 +14,8 @@
     "pages/shop/shop",
     "pages/chat/chat",
     "pages/information/information",
-    "pages/showinformation/showinformation"
-
+    "pages/showinformation/showinformation",
+    "pages/my/userdetail/userdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

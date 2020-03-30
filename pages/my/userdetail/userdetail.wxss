@@ -1,0 +1,9 @@
+/* pages/my/userdetail/userdetail.wxss */
+
+.change {
+  position:fixed;
+  bottom:10px;
+  display:flex;
+  width:100%;
+  justify-content:center;
+}

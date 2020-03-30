@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function() {
+  onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -46,9 +46,15 @@ App({
       }
     })
   },
+    
+  
   globalData: {
     userInfo: null,
-    url: 'http://localhost:8080/'
-
+    url: 'http://localhost:8080/',
+    appId: 'wxd804481d2303e5c9',     
+    openId: '',          //每个用户的微信号加密之后的openid
+    session_key: null,      //保留
+    appSecret:'9172d3b53b987c6bacdede8c86127e60',
+        
   }
 })
