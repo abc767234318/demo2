@@ -88,7 +88,7 @@
 		</view>
 
 		<view class="cu-item arrow">
-			<navigator class="content" url="/pages/my/feedback/feedback" hover-class="none">
+			<navigator class="content" url="/pages/upload/upload" hover-class="none">
 				<image src="/images/chanpingfankui.jpg" class="png" mode="aspectFit"></image>
 				<text class="text-grey">商品上传</text>
 			</navigator>
