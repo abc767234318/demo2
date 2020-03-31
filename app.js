@@ -50,7 +50,7 @@ App({
   
   globalData: {
     userInfo: null,
-    url: 'http://localhost:8080/',
+    url: 'http://49.233.216.140:8080/mp-plus-0.0.1-SNAPSHOT/',
     appId: 'wxd804481d2303e5c9',     
     openId: '',          //每个用户的微信号加密之后的openid
     session_key: null,      //保留
